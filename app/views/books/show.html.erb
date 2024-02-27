@@ -1,7 +1,13 @@
 <h3>Book detail</h3>
 
+  <h5>Image</h5>
+  <%= image_tag @book.profile_image, size: "100×100" %>
+
   <h5>Title</h5>
   <p><%= @book.title %></p>
 
   <h5>Opinion</h5>
   <p><%= @book.opinion %></p>
+
+  <%= link_to "Edit", edit_book_path(@book.id) %>
+  <%= link_to "Destroy", book_path(@book.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>

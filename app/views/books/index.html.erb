@@ -2,6 +2,9 @@
 
 <% @books.each do |book| %>
 
+  <p>Image</p>
+  <%= f.file_field :profile_image, accept: "image/*" %>
+
   <p>Title</p>
   <span><%= link_to book.title, book_path(book.id) %></span>
 
