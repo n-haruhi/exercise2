@@ -3,7 +3,7 @@
 <% @books.each do |book| %>
 
   <p>Image</p>
-  <%= f.file_field :profile_image, accept: "image/*" %>
+  <%= image_tag book.profile_image, size: "100×100" %>
 
   <p>Title</p>
   <span><%= link_to book.title, book_path(book.id) %></span>
