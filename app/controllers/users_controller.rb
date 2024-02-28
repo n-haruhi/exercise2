@@ -4,17 +4,6 @@ class UsersController < ApplicationController
   def index
     @users = User.all
     @book = Book.new
-    @user = current_user
-  end
-
-  def create
-    @user = User.new(user_params)
-    if @user.save
-      flash[:success] = "Signed in successfully."
-      redirect_to books_path
-    else
-      render 'users/show'
-    end
   end
 
   def show
@@ -30,16 +19,10 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id]) # ユーザーの取得
     if @user.update(user_params)
-      flash[:success] = "You have updated user successfully."
-      redirect_to user_path(@user.id) # ユーザーの詳細ページへのパス
+      redirect_to user_path(@user.id), success: "You have updated user successfully."
     else
       render :edit
     end
-  end
-
-  def destroy　# ログアウト処理を実行
-    flash[:success] = "Signed out successfully."
-    redirect_to root_path
   end
 
 
