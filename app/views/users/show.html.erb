@@ -1,15 +1,21 @@
 <div class="container">
-
   <h3>User info</h3>
 
-    <%= image_tag @user.get_profile_image, size: '100x100' %>
+  <table class='table'>
+    <tr><%= image_tag @user.get_profile_image, size: '100x100' %></tr>
+    <tr>
+      <th>name</th>
+      <th><%= @user.name %></th>
+    </tr>
+    <tr>
+      <th>introduction</th>
+      <th><%= @user.introduction %></th>
+    </tr>
+  </table>
 
-    <h5>name</h5>
-    <p><%= @user.name %></p>
-
-    <h5>introduction</h5>
-    <p><%= @user.introduction %></p>
-
-    <%= link_to "Edit", edit_user_path(@user.id) %>
-
+  <div class="row">
+    <%= link_to edit_user_path(@user), class: "btn btn-outline-secondary btn-block" do %>
+      <i class="fas fa-user-cog"></i>
+    <% end %>
+  </div>
 </div>
