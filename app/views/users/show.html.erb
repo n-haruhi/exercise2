@@ -1,11 +1,15 @@
-<h3>User info</h3>
+<div class="container">
 
-  <%= image_tag @user.profile_image, size: "100×100" %>
+  <h3>User info</h3>
 
-  <h5>name</h5>
-  <p><%= @user.name %></p>
+    <%= image_tag @user.get_profile_image, size: '100x100' %>
 
-  <h5>introduction</h5>
-  <p><%= @user.introduction %></p>
+    <h5>name</h5>
+    <p><%= @user.name %></p>
 
-  <%= link_to "Edit", edit_user_path(@user.id) %>
+    <h5>introduction</h5>
+    <p><%= @user.introduction %></p>
+
+    <%= link_to "Edit", edit_user_path(@user.id) %>
+
+</div>
